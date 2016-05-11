@@ -1,0 +1,10 @@
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+node_modules
+logs
+*.log
+npm-debug.log*

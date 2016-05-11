@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/semantic.min.css">
+
+  <title>MQTT Websocket Dashboard</title>
+
+  <script type="text/javascript" src="js/socket.io.min.js"></script>
+  <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+
+  <script type="text/javascript">
+    var socket = io.connect('127.0.0.1:5000');
+      socket.on('connect', function () {
+        socket.on('mqtt', function (msg) {
+          var msgTopic=msg.topic.split("/");
+          var topic=msgTopic[5];
+          var id=msgTopic[3];
+          console.log(msg.topic+' '+msg.payload);
+          console.log(topic.concat(id));
+          $('#'+topic.concat(id)).html(msg.payload);
+       });
+       socket.emit('subscribe',{topic:'/ESP/#'});
+      });
+  </script>
+
+</head>
+
+<body>
+
+<p><h2 class="ui center dividing aligned header">MQTT Websocket Dashboard</h2></p>
+
+<div class="wrapper">
+<div class="section group">
+
+	<div class="col span_1_of_5">
+    <div class="ui cards">
+      <div class="card">
+        <div class="content">
+          <img class="right floated mini ui image" src="img/thermometer.png">
+          <div class="header">
+            Temperature
+          </div>
+          <div class="meta">
+            BMP80 Sensor
+          </div>
+          <div class="description"></div>
+        </div>
+        <div style="text-align:center;" class="extra content centered">
+          <div class="ui labeled button" tabindex="0">
+        <div id="Temperature30" class="ui basic blue button">
+          <div class="ui active small inline loader"></div>
+          </div>
+            <button class="ui basic left pointing blue label">°C</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+	<div class="col span_1_of_5">
+    <div class="ui cards">
+    <div class="card">
+      <div class="content">
+        <img class="right floated mini ui image" src="img/blood-pressure-control-tool.png">
+        <div class="header">
+          Pressure
+        </div>
+        <div class="meta">
+          BMP80 Sensor
+        </div>
+        <div class="description">
+        </div>
+      </div>
+      <div style="text-align:center;" class="extra content centered">
+        <div class="ui labeled button" tabindex="0">
+      <div id="Pressure30" class="ui basic blue button">
+        <div class="ui active small inline loader"></div>
+        </div>
+          <button class="ui basic left pointing blue label">hPa</button>
+        </div>
+      </div>
+    </div>
+  </div>
+	</div>
+
+	<div class="col span_1_of_5">
+    <div class="ui cards">
+    <div class="card">
+      <div class="content">
+        <img class="right floated mini ui image" src="img/wall-clock.png">
+        <div class="header">
+          ESP8266 Uptime
+        </div>
+        <div class="meta">NodeMCU
+        </div>
+        <div class="description"></div>
+      </div>
+      <div style="text-align:center;" class="extra content centered">
+        <div class="ui labeled button" tabindex="0">
+      <div id="Uptime31" class="ui basic blue button">
+        <div class="ui active small inline loader"></div>
+        </div>
+          <button class="ui basic left pointing blue label">min</button>
+        </div>
+      </div>
+    </div>
+  </div>
+	</div>
+
+	<div class="col span_1_of_5">
+    <div class="ui cards">
+      <div class="card">
+        <div class="content">
+          <img class="right floated mini ui image" src="img/humidity.png">
+          <div class="header">
+            Humidity
+          </div>
+          <div class="meta">
+            DHT22 Sensor
+          </div>
+          <div class="description"></div>
+        </div>
+        <div style="text-align:center;" class="extra content centered">
+          <div class="ui labeled button" tabindex="0">
+        <div id="Humidity33" class="ui basic blue button">
+          <div class="ui active small inline loader"></div>
+          </div>
+            <button class="ui basic left pointing blue label">%</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+	</div>
+
+	<div class="col span_1_of_5">
+    <div class="ui cards">
+      <div class="card">
+        <div class="content">
+          <img class="right floated mini ui image" src="img/thermometer.png">
+          <div class="header">
+            Box Temperature
+          </div>
+          <div class="meta">
+            Dallas Sensor
+          </div>
+          <div class="description"></div>
+        </div>
+        <div style="text-align:center;" class="extra content centered">
+          <div class="ui labeled button" tabindex="0">
+        <div id="Temperature33" class="ui basic blue button">
+          <div class="ui active small inline loader"></div>
+          </div>
+            <button class="ui basic left pointing blue label">°C</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+	</div>
+
+</div>
+</div>
+
+</body>
+</html>
