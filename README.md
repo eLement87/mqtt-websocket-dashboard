@@ -1,7 +1,8 @@
 # MQTT Websocket Dashboard 
 
 
-I searched for a opportunity to receive `mqtt` message from my `ESP8266` Module and display it live in a Browser. I found a tutorial from [Robert Hekkers](http://blog.hekkers.net/2012/10/13/realtime-data-with-mqtt-node-js-mqtt-js-and-socket-io/). But the example didn't work for me.
+I searched for a opportunity to receive `mqtt` message from my `ESP8266 Module` and display it live in a Browser. I found a tutorial from [Robert Hekkers](http://blog.hekkers.net/2012/10/13/realtime-data-with-mqtt-node-js-mqtt-js-and-socket-io/). But the example didn't work for me.
+
 After some hours spent on studying `node.js`, `Javascript` and `Socket.io` - i ended up with this nice looking Dashboard.
 
 ![Dashboard](Dashboard.gif)
@@ -17,7 +18,7 @@ Basically it's the same concept of code with some enhancements.
 
 2. Clone the Repo
 
-		git clone
+		git clone https://github.com/eLement87/mqtt-websocket-dashboard.git
 
 3. Download the Dependencies
 
@@ -46,7 +47,7 @@ I used [ESPeasy](http://esp8266.nu) on my ESP-Module that publish's the Data to 
  - better comprehension in Javascript etc.
  - and of course better englisch :D
 
- If somebody have the knowledge or have improvements - feel free to tell me how ;)
+ If somebody have the knowledge or improvements - feel free to send a pull request to tell me how ;)
 	
 
 ## Credits
