@@ -1,0 +1,15 @@
+{
+    "name": "mqtt-websocket-dashboard",
+    "description": "Server that receives an mqtt message from a ESP8266 module and displays it live in a browser",
+    "version": "0.0.1",
+    "main": "app.js",
+    "license": "MIT",
+    "author": "eLement87 <github@bmtech.de>",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "mqtt": "^2.14.0",
+        "socket.io": "^2.0.4"
+    }
+}
